@@ -67,6 +67,13 @@
     </style>
 </head>
 <body>
+
+    <!-- Add just after <body> -->
+<div style="position:fixed; top:20px; right:30px; z-index:10001;">
+    <a href="registered_users.jsp" class="btn btn-info">Registered</a>
+</div>
+
+
     <div class="card">
         <h2 class="mb-4">Welcome to Facebook</h2>
         
@@ -99,3 +106,4 @@
     </footer>
 </body>
 </html>
+
