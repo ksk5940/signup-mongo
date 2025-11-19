@@ -23,6 +23,13 @@ spec:
           value: singup#user
         - name: MONGO_INITDB_ROOT_PASSWORD
           value: signup#pass
+        volumeMounts:
+        - name: mongovol
+          mountPath: /data/db
+      volumes:
+      - name: mongovol
+        hostPath:
+          path: /mongobkp
 ---
 apiVersion: v1
 kind: Service
@@ -35,4 +42,5 @@ spec:
     app: mongodb
   ports:
     - port: 27017
+
       targetPort: 27017
