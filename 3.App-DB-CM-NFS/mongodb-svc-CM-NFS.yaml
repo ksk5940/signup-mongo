@@ -20,9 +20,23 @@ spec:
         - containerPort: 27017
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
-          value: singup#user
+          valueFrom:
+            configMapKeyRef:  
+              name: signupcm
+              key: db_username
         - name: MONGO_INITDB_ROOT_PASSWORD
-          value: signup#pass
+            secretKeyRef:
+              name: signupsecret
+              key: db_password
+        volumeMounts:
+        - name: mongonfsvol
+          mountPath: /data/db
+      volumes:
+      - name: mongonfsvol
+        nfs:
+         server: 172.31.9.244
+         path: /mnt/nfs_share
+              
 ---
 apiVersion: v1
 kind: Service

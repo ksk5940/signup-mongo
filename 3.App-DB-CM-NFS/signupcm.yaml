@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: signupcm
+  namespace: prod
+data:
+  db_username: singup#user
+  db_url: mongosvc

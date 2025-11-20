@@ -20,11 +20,17 @@ spec:
         - containerPort: 8080
         env:
         - name: MONGO_DB_HOSTNAME
-          value: mongosvc
+            configMapKeyRef:  
+              name: signupcm
+              key: db_url
         - name: MONGO_DB_USERNAME
-          value: singup#user
+            configMapKeyRef:  
+              name: signupcm
+              key: db_username
         - name: MONGO_DB_PASSWORD
-          value: signup#pass
+            secretKeyRef:
+              name: signupsecret
+              key: db_password
 
 ---
 apiVersion: v1
