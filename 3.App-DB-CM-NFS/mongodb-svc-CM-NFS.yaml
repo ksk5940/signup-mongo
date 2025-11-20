@@ -35,7 +35,7 @@ spec:
       volumes:
       - name: mongonfsvol
         nfs:
-         server: 198.168.0.150
+         server: 10.16.0.150
          path: /mnt/nfs_share
               
 ---
