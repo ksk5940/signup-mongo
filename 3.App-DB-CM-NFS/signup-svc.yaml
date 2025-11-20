@@ -20,14 +20,17 @@ spec:
         - containerPort: 8080
         env:
         - name: MONGO_DB_HOSTNAME
+          valueFrom:
             configMapKeyRef:  
               name: signupcm
               key: db_url
         - name: MONGO_DB_USERNAME
+          valueFrom:
             configMapKeyRef:  
               name: signupcm
               key: db_username
         - name: MONGO_DB_PASSWORD
+          valueFrom:
             secretKeyRef:
               name: signupsecret
               key: db_password

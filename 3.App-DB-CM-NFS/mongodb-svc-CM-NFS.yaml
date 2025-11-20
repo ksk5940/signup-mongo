@@ -25,17 +25,11 @@ spec:
               name: signupcm
               key: db_username
         - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
             secretKeyRef:
               name: signupsecret
               key: db_password
-        volumeMounts:
-        - name: mongonfsvol
-          mountPath: /data/db
-      volumes:
-      - name: mongonfsvol
-        nfs:
-         server: 172.31.9.244
-         path: /mnt/nfs_share
+
               
 ---
 apiVersion: v1
