@@ -29,7 +29,14 @@ spec:
             secretKeyRef:
               name: signupsecret
               key: db_password
-
+        volumeMounts:
+        - name: mongonfsvol
+          mountPath: /data/db
+      volumes:
+      - name: mongonfsvol
+        nfs:
+         server: 198.168.0.150
+         path: /mnt/nfs_share
               
 ---
 apiVersion: v1
